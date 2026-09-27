@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Scopri gli impianti del centro sportivo SportHub.">
+    <title>Impianti | SportHub</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/list.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-content">
+        <a class="brand" href="/" aria-label="SportHub, pagina iniziale">
+          <span class="brand-symbol" aria-hidden="true">S</span>
+          <span>SportHub</span>
+        </a>
+        <nav aria-label="Navigazione principale">
+          <ul class="nav-list">
+            <li><a class="nav-link current" href="/#impianti" aria-current="page">Impianti</a></li>
+            <li><a class="nav-link" href="/#centro">Il centro</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-content">
+          <p class="eyebrow">Il tuo spazio per lo sport</p>
+          <h1>Trova il posto giusto per muoverti.</h1>
+          <p class="hero-text">Esplora gli impianti del centro sportivo e scopri quello più adatto alla tua attività.</p>
+          <a class="button button-primary" href="#impianti">Esplora gli impianti <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+
+      <section class="section" id="impianti" aria-labelledby="facilities-title">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Gli spazi</p>
+              <h2 id="facilities-title">I nostri impianti</h2>
+            </div>
+            <p class="section-intro">Scegli un impianto per leggere tutti i dettagli.</p>
+          </div>
+
+          <p class="status-message" id="list-status" role="status">Caricamento degli impianti in corso…</p>
+          <button class="button button-secondary" id="retry-button" type="button" hidden>Riprova</button>
+          <ul class="facility-grid" id="facility-list" hidden></ul>
+        </div>
+      </section>
+
+      <section class="section about-section" id="centro" aria-labelledby="about-title">
+        <div class="container about-content">
+          <div class="about-copy">
+            <p class="eyebrow">Il centro</p>
+            <h2 id="about-title">Uno spazio per ogni passione.</h2>
+            <p>SportHub riunisce impianti per sport diversi in un unico centro. Inizia esplorando gli spazi disponibili e scopri le loro caratteristiche.</p>
+          </div>
+          <figure class="about-figure">
+            <img src="/assets/centro-sportivo-drone.webp" alt="Vista aerea illustrativa di un centro sportivo con campi da calcio e tennis e una palestra" width="1672" height="941" loading="lazy" decoding="async">
+            <figcaption>Vista aerea del centro sportivo</figcaption>
+          </figure>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">SportHub · Il centro sportivo a portata di mano</div>
+    </footer>
+  </body>
+</html>
