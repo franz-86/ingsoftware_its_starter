@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router';
 import FacilityCard from './FacilityCard.jsx';
 import centerImage from '../assets/centro-sportivo-drone.webp';
 
@@ -10,23 +11,22 @@ export default function HomePage() {
   const [retry, setRetry] = useState(0);
 
   useEffect(() => {
-    const controller = new AbortController();
+    document.title = 'Impianti | SportHub';
     setStatus('loading');
 
     async function loadFacilities() {
       try {
-        const response = await fetch(`${apiUrl}/facilities`, { signal: controller.signal });
+        const response = await fetch(`${apiUrl}/facilities`);
         if (!response.ok) throw new Error('Risposta del server non valida');
         const data = await response.json();
         setFacilities(data);
         setStatus(data.length === 0 ? 'empty' : 'ready');
-      } catch (error) {
-        if (error.name !== 'AbortError') setStatus('error');
+      } catch {
+        setStatus('error');
       }
     }
 
     loadFacilities();
-    return () => controller.abort();
   }, [retry]);
 
   return (
@@ -36,7 +36,7 @@ export default function HomePage() {
           <p className="eyebrow">Il tuo spazio per lo sport</p>
           <h1>Trova il posto giusto per muoverti.</h1>
           <p className="hero-text">Esplora gli impianti del centro sportivo e scopri quello più adatto alla tua attività.</p>
-          <a className="button button-primary" href="#impianti">Esplora gli impianti <span aria-hidden="true">↗</span></a>
+          <Link className="button button-primary" to="/#impianti">Esplora gli impianti <span aria-hidden="true">↗</span></Link>
         </div>
       </section>
 

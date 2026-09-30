@@ -34,6 +34,8 @@ npm run start:frontend
 
 Apri <http://localhost:8080> nel browser. Vite aggiorna la pagina durante le modifiche al frontend.
 
+Il frontend è una SPA con React Router e un unico documento `frontend/index.html`. Le route sono dichiarate in `frontend/src/App.jsx`: `/` mostra gli impianti, `/facilities/:id` il dettaglio e le altre URL una pagina non trovata. I componenti usano `Link` per navigare senza ricaricare il documento e `useParams` per leggere l'ID dell'impianto. Per aggiungere una pagina basta creare il componente e aggiungere una `Route` in `App.jsx`.
+
 ## API e database
 
 - `GET /facilities` restituisce l'elenco degli impianti.
@@ -60,8 +62,8 @@ I due test in `tests/` usano un database SQLite in memoria e non modificano `dat
 
 ## Struttura
 
-- `frontend/`: pagine HTML, CSS e componenti React. `FacilityCard.jsx` contiene la card dell'elenco.
-- `vite.config.mjs`: server di sviluppo e build delle due pagine.
+- `frontend/`: unico documento HTML, CSS e componenti React. `App.jsx` contiene le route e il layout condiviso; `FacilityCard.jsx` contiene la card dell'elenco.
+- `vite.config.mjs`: server di sviluppo e build della SPA.
 - `backend/`: server Express e route API.
 - `database/`: inizializzazione SQLite, reset e database locale generato all'avvio.
 - `tests/`: test automatici delle route.

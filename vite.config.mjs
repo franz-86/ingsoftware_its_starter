@@ -1,4 +1,3 @@
-import { resolve } from 'node:path';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
@@ -7,11 +6,5 @@ export default defineConfig({
   build: {
     outDir: '../dist',
     emptyOutDir: true,
-    rollupOptions: {
-      input: {
-        index: resolve('frontend/index.html'),
-        facility: resolve('frontend/facility.html'),
-      },
-    },
   },
 });
