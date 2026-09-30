@@ -32,14 +32,14 @@ Avvia il frontend in un secondo terminale:
 npm run start:frontend
 ```
 
-Apri <http://localhost:8080> nel browser.
+Apri <http://localhost:8080> nel browser. Vite aggiorna la pagina durante le modifiche al frontend.
 
 ## API e database
 
 - `GET /facilities` restituisce l'elenco degli impianti.
 - `GET /facilities/:id` restituisce un impianto; un ID inesistente restituisce HTTP 404.
 
-Il flusso è: browser → `fetch` → backend Express → query SQLite → JSON → HTML. Le query delle route si trovano direttamente in `backend/app.js`. La tabella e i dati iniziali sono definiti in `database/setup.js`.
+Il flusso è: componente React → `fetch` → backend Express → query SQLite → JSON → componente React. Le query delle route si trovano direttamente in `backend/app.js`. La tabella e i dati iniziali sono definiti in `database/setup.js`.
 
 Per riportare il database ai quattro impianti iniziali, ferma il backend e lancia:
 
@@ -49,17 +49,19 @@ npm run db:reset
 
 **Attenzione:** il comando elimina tutti i dati presenti nella tabella `facilities` prima di ricrearla.
 
-## Test
+## Test e build
 
 ```bash
 npm test
+npm run build:frontend
 ```
 
-I due test in `tests/` usano un database SQLite in memoria e non modificano `database/sporthub.db`.
+I due test in `tests/` usano un database SQLite in memoria e non modificano `database/sporthub.db`. La build crea la cartella `dist/`.
 
 ## Struttura
 
-- `frontend/`: pagine HTML, CSS, JavaScript del browser e server statico.
+- `frontend/`: pagine HTML, CSS e componenti React. `FacilityCard.jsx` contiene la card dell'elenco.
+- `vite.config.mjs`: server di sviluppo e build delle due pagine.
 - `backend/`: server Express e route API.
 - `database/`: inizializzazione SQLite, reset e database locale generato all'avvio.
 - `tests/`: test automatici delle route.

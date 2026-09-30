@@ -6,48 +6,9 @@
     <meta name="description" content="Dettagli di un impianto del centro sportivo SportHub.">
     <title>Dettaglio impianto | SportHub</title>
     <link rel="stylesheet" href="/styles.css">
-    <script src="/detail.js" defer></script>
+    <script type="module" src="/src/main.jsx"></script>
   </head>
   <body>
-    <header class="site-header">
-      <div class="container header-content">
-        <a class="brand" href="/" aria-label="SportHub, pagina iniziale">
-          <span class="brand-symbol" aria-hidden="true">S</span>
-          <span>SportHub</span>
-        </a>
-        <nav aria-label="Navigazione principale">
-          <ul class="nav-list">
-            <li><a class="nav-link current" href="/#impianti" aria-current="page">Impianti</a></li>
-            <li><a class="nav-link" href="/#centro">Il centro</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-
-    <main class="section detail-page">
-      <div class="container">
-        <a class="back-link" href="/#impianti"><span aria-hidden="true">←</span> Torna agli impianti</a>
-
-        <p class="status-message" id="detail-status" role="status">Caricamento del dettaglio in corso…</p>
-        <button class="button button-secondary" id="retry-button" type="button" hidden>Riprova</button>
-
-        <article class="detail-card" id="facility-detail" hidden>
-          <div class="detail-accent" aria-hidden="true"><span id="detail-initial"></span></div>
-          <div class="detail-content">
-            <p class="eyebrow">Dettaglio impianto</p>
-            <h1 id="detail-name"></h1>
-            <div class="detail-tags">
-              <span class="tag" id="detail-type"></span>
-            </div>
-            <h2>Informazioni</h2>
-            <p id="detail-description"></p>
-          </div>
-        </article>
-      </div>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container">SportHub · Il centro sportivo a portata di mano</div>
-    </footer>
+    <div id="root"></div>
   </body>
 </html>

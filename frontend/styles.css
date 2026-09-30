@@ -25,6 +25,8 @@ body {
   line-height: 1.6;
 }
 
+#root { min-height: 100vh; display: flex; flex-direction: column; }
+
 main { flex: 1; }
 
 button, a { -webkit-tap-highlight-color: transparent; }
