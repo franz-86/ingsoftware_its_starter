@@ -7,7 +7,6 @@ export default function FacilityPage() {
   const { id } = useParams(); // questo id è legato al nome del parametro usato nel router in App.jsx
   const [facility, setFacility] = useState(null);
   const [status, setStatus] = useState("loading");
-  const [retry, setRetry] = useState(0);
 
   useEffect(() => {
     document.title = "Dettaglio impianto | SportHub";
@@ -36,7 +35,7 @@ export default function FacilityPage() {
     }
 
     loadFacility();
-  }, [id, retry]);
+  }, [id]);
 
   return (
     <main className="section detail-page">
@@ -53,17 +52,8 @@ export default function FacilityPage() {
             {status === "missing" &&
               "Questo impianto non è stato trovato. Torna all’elenco per scegliere un altro spazio."}
             {status === "error" &&
-              "Non riusciamo a caricare il dettaglio. Verifica che il backend sia avviato e riprova."}
+              "Non riusciamo a caricare il dettaglio. Verifica che il backend sia avviato."}
           </p>
-        )}
-        {status === "error" && (
-          <button
-            className="button button-secondary"
-            type="button"
-            onClick={() => setRetry(retry + 1)}
-          >
-            Riprova
-          </button>
         )}
         {status === "ready" && facility && (
           <article className="detail-card">

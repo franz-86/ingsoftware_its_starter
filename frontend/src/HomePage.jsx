@@ -8,7 +8,6 @@ const apiUrl = 'http://localhost:3000';
 export default function HomePage() {
   const [facilities, setFacilities] = useState([]);
   const [status, setStatus] = useState('loading');
-  const [retry, setRetry] = useState(0);
 
   useEffect(() => {
     document.title = 'Impianti | SportHub';
@@ -27,7 +26,7 @@ export default function HomePage() {
     }
 
     loadFacilities();
-  }, [retry]);
+  }, []);
 
   return (
     <main>
@@ -54,10 +53,9 @@ export default function HomePage() {
             <p className="status-message" role="status">
               {status === 'loading' && 'Caricamento degli impianti in corso…'}
               {status === 'empty' && 'Al momento non ci sono impianti da mostrare.'}
-              {status === 'error' && 'Non riusciamo a caricare gli impianti. Verifica che il backend sia avviato e riprova.'}
+              {status === 'error' && 'Non riusciamo a caricare gli impianti. Verifica che il backend sia avviato.'}
             </p>
           )}
-          {status === 'error' && <button className="button button-secondary" type="button" onClick={() => setRetry(retry + 1)}>Riprova</button>}
           {status === 'ready' && (
             <ul className="facility-grid">
               {facilities.map((facility) => <FacilityCard key={facility.id} facility={facility} />)}
